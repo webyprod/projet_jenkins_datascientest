@@ -13,7 +13,7 @@ stages {
       sh '''
         docker rm -f movie-service || true
         docker rm -f cast-service || true
-        docker-compose up --build -d
+        docker compose up --build -d
       sleep 6
       '''
       }
