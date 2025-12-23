@@ -48,7 +48,7 @@ stages {
       cp charts/values.yaml values.yml
       cat values.yml
       sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-      helm upgrade --install app fastapi --values=values.yml --namespace dev
+      helm upgrade --install app charts --values=values.yml --namespace dev
       '''
       }
     }
@@ -67,7 +67,7 @@ stages {
       cp charts/values.yaml values.yml
       cat values.yml
       sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-      helm upgrade --install app fastapi --values=values.yml --namespace qa
+      helm upgrade --install app charts --values=values.yml --namespace qa
       '''
       }
     }
@@ -86,7 +86,7 @@ stages {
       cp charts/values.yaml values.yml
       cat values.yml
       sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-      helm upgrade --install app fastapi --values=values.yml --namespace staging
+      helm upgrade --install app charts --values=values.yml --namespace staging
       '''
       }
     }
@@ -114,7 +114,7 @@ stages {
           cp charts/values.yaml values.yml
           cat values.yml
           sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-          helm upgrade --install app fastapi --values=values.yml --namespace prod
+          helm upgrade --install app charts --values=values.yml --namespace prod
           '''
         }
       }
