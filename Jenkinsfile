@@ -7,12 +7,6 @@ DOCKER_TAG = "latest" // we will tag our images with the current build in order 
 }
 agent any // Jenkins will be able to select all available agents
 stages {
-  stage('DEBUG') { 
-    steps { 
-      echo "BRANCH_NAME = ${env.BRANCH_NAME}" 
-      echo "GIT_BRANCH = ${env.GIT_BRANCH}" 
-    } 
-  }
   stage(' Docker Build & Run'){ // docker build image stage
     steps {
       script {
