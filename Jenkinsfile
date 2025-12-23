@@ -97,7 +97,7 @@ stages {
       }
 
       when { 
-        branch 'master' 
+        expression { env.BRANCH_NAME == 'master' }
         }
       steps {
         // Create an Approval Button with a timeout of 15minutes.
