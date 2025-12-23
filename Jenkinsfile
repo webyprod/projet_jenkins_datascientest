@@ -7,6 +7,12 @@ DOCKER_TAG = "latest" // we will tag our images with the current build in order 
 }
 agent any // Jenkins will be able to select all available agents
 stages {
+  stage('DEBUG') { 
+    steps { 
+      echo "BRANCH_NAME = ${env.BRANCH_NAME}" 
+      echo "GIT_BRANCH = ${env.GIT_BRANCH}" 
+    } 
+  }
   stage(' Docker Build & Run'){ // docker build image stage
     steps {
       script {
@@ -97,7 +103,7 @@ stages {
       }
 
       when { 
-        expression { env.BRANCH_NAME == 'master' }
+        expression { env.GIT_BRANCH ==~ /.*master/ }
         }
       steps {
         // Create an Approval Button with a timeout of 15minutes.
